@@ -1,2 +1,7 @@
-# leetcode-cn
-leetcode-cn.com的Python3题解
+# leetcode-cn.com的Python3题解
+
+
+| #    | 题名 | 难度 | 链接 |
+| :----: | :----: | :----: | :----: |
+| 1 | 两数之后 | 简单 | [#1](1.py) |
+
