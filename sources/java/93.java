@@ -41,3 +41,35 @@ public class solution {
     }
 
 }
+
+// 另一种写法
+
+class Solution {
+    public List<String> restoreIpAddresses(String s) {
+        List<String> result = new ArrayList<String>();
+        helper(result, s, "", 0, 0);
+        return result;
+    }
+
+    private void helper(List<String> result, String s, String ip, int start, int count) {
+        if (count > 4) {
+            return;
+        }
+        if (count == 4 && start == s.length()) {
+            result.add(ip);
+            return;
+        }
+
+        for (int i = 1; i < 4; i++) {
+            if (start + i > s.length()) {
+                break;
+            }
+            String tmp = s.substring(start, start + i);
+            if ((tmp.startsWith("0") && tmp.length() > 1) || (i == 3 && Integer.valueOf(tmp) > 255)) {
+                continue;
+            }
+            helper(result, s, ip + tmp + (count == 3 ? "" : "."), start + i, count + 1);
+        }
+    }
+
+}
